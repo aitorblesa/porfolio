@@ -104,6 +104,7 @@ const THEMES = ["Light", "Dark", "System"];
 
   document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
     e.stopPropagation();
+    console.log('clicked')
     const isClosed = !themesMenu.classList.contains("open");
     themesMenu.classList[isClosed ? "add" : "remove"]("open");
   });
