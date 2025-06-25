@@ -8,7 +8,9 @@ interface GalleryBaseProps {
 }
 
 export default function GalleryBase({ images }: GalleryBaseProps) {
-  const [optimizedImages, setOptimizedImages] = useState<CloudinaryOptimizedImage[]>([]);
+  const [optimizedImages, setOptimizedImages] = useState<
+    CloudinaryOptimizedImage[]
+  >([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedTag, setSelectedTag] = useState<string>("All");
 
@@ -47,12 +49,15 @@ export default function GalleryBase({ images }: GalleryBaseProps) {
   }, [images]);
 
   // Filtrar imágenes según el tag seleccionado
-  const filteredImages = selectedTag === "All"
-    ? optimizedImages
-    : optimizedImages.filter((image) => image.tags?.includes(selectedTag));
+  const filteredImages =
+    selectedTag === "All"
+      ? optimizedImages
+      : optimizedImages.filter((image) => image.tags?.includes(selectedTag));
 
   // Obtener los tags únicos de las imágenes
-  const allTags = [...new Set(optimizedImages.flatMap((image) => image.tags || []))];
+  const allTags = [
+    ...new Set(optimizedImages.flatMap((image) => image.tags || [])),
+  ];
 
   const handleClick = (event: MouseEvent) => {
     event.preventDefault();
@@ -67,15 +72,15 @@ export default function GalleryBase({ images }: GalleryBaseProps) {
 
   return (
     <div>
-      <header class="flex flex-col gap-4 justify-start items-start mb-4 sm:mb-8 lg:mb-12 w-full md:flex-row md:items-end md:justify-between">
-        <div class="flex flex-col gap-2 font-light text-3xl uppercase">
-          <a href="/#experiencia" class="font-bold text-accent">
+      <header className="flex flex-col gap-4 justify-start items-start mb-4 sm:mb-8 lg:mb-12 w-full md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-2 font-light text-3xl uppercase">
+          <a href="/#experiencia" className="font-bold text-accent">
             Aitor Blesa
           </a>
-          <span class="text-xl sm:text-2xl">Photography</span>
+          <span className="text-xl sm:text-2xl">Photography</span>
         </div>
 
-        <nav class="flex gap-4 tracking-normal sm:tracking-widest uppercase text-content text-base sm:text-lg">
+        <nav className="flex gap-4 tracking-normal sm:tracking-widest uppercase text-content text-base sm:text-lg">
           <button
             type="button"
             className={`transition-colors hover:text-accent ${selectedTag === "All" ? "text-accent" : ""}`}
