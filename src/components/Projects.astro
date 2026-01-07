@@ -1,0 +1,114 @@
+---
+import NextJsIcon from "@icons/NextJS.astro";
+import TailwindIcon from "@icons/Tailwind.astro";
+import ReactIcon from "@icons/React.astro";
+import JavascriptIcon from "@icons/Javascript.astro";
+import AstroIcon from "@icons/Astro.astro";
+import StrapiIcon from "@icons/Strapi.astro";
+import PROJECTS from "../data/projects.json";
+import Chain from "@icons/Chain.astro";
+
+const TAG_METADATA = {
+  "Next.js": {
+    icon: NextJsIcon,
+    class: "bg-black"
+  },
+  "Tailwind CSS": {
+    icon: TailwindIcon,
+    class: "bg-[#00BCFF]"
+  },
+  "React": {
+    icon: ReactIcon,
+    class: "bg-cyan-500/15"
+  },
+  "JavaScript": {
+    icon: JavascriptIcon,
+    class: "bg-[#F7DF1E] text-black"
+  },
+  "Astro": {
+    icon: AstroIcon,
+    class: "bg-[#FF5D01] text-black"
+  },
+  "Strapi": {
+    icon: StrapiIcon,
+    class: "bg-[#4945FF] text-white"
+  },
+  
+} as const;
+
+type TagMeta = {
+  class: string;
+  Icon?: any;
+};
+
+const getTagMeta = (tag: string): TagMeta => {
+  const tagInfo = TAG_METADATA[tag as keyof typeof TAG_METADATA];
+
+  return {
+    class: tagInfo?.class ?? "bg-neutral-100",
+    Icon: tagInfo?.icon ?? null,
+  };
+};
+---
+
+<section
+  id="about"
+  class="grid grid-cols-1 pt-12 pb-20 md:pt-24 lg:grid-cols-12 xl:py-20 w-full"
+>
+  <h1 class="col-span-3 text-accent uppercase font-semibold text-xl mb-4 lg:text-right lg:mr-24 lg:w-52">
+    Proyectos Destacados
+  </h1>
+  <article class="flex flex-col  col-span-9 gap-y-16">
+  {
+    PROJECTS.map(({ title, description, etiquetas, enlaces, image }) => (
+      <article class="flex space-x-8 w-full ">
+        <div class="w-full md:w-1/2 rounded-xl border shadow-xl relative">
+            <img src={image} alt={title} loading="lazy" class="col-span-4 rounded-lg object-cover object-top w-full h-64" />
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg flex flex-col gap-3">
+            <h3 class="text-2xl font-bold">{title}</h3>
+            <ul class="flex mb-2 gap-x-2">
+              {etiquetas.tags.map((tag) => {
+                const meta = getTagMeta(tag);
+                const Icon = meta.Icon;
+                console.log(meta);
+                return (
+                  <li>
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs  text-white py-1 px-2
+                      ${meta.class}
+                      `}
+                      aria-label={tag}> 
+                        {Icon && <Icon />}
+                        {tag}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <p class="max-w-lg text-pretty">{description}</p>
+            {
+                enlaces && (
+                    <div class="flex flex-row gap-4 flex-wrap">
+                        {Object.entries(enlaces).map(([nombre, valor]) => (
+                            <a
+                                href={`${valor}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center transition-all duration-150 hover:text-accent"
+                                aria-label={`(${nombre}) opens in a new tab`}
+                            >
+                                <Chain />
+                                {nombre}
+                            </a>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+      </article>
+    ))  
+  }
+  </div>
+</section>

@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Radiants",
+
+    "description": "Web corporativa de un estudio creativo especializado en experiencias digitales interactivas. Creada desde cero con Next.js, React y Tailwind CSS.",
+    "etiquetas": {
+      "tags": ["Astro", "Tailwind CSS", "JavaScript"]
+    },
+    "enlaces": {
+      "visitar": "https://radiants.cat"
+    },
+    "image": "/radiants.png"
+  },
+  {
+    "title": "Anna UGC",
+    "description": "Web personal de Anna Julia, creadora de contenido en redes sociales. La página muestra su biografía, enlaces a sus perfiles sociales y una galería de sus mejores fotos y videos. Desarrollada con Next.js, Tailwind CSS y Strapi para la gestión de contenido.",
+    "etiquetas": {
+      "tags": ["Next.js", "Tailwind CSS", "Strapi"]
+    },
+    "enlaces": {
+      "Visitar": "https://anna-julia-ugc-frontend.vercel.app/"
+    },
+    "image": "/annaugc.png"
+  }
+]

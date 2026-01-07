@@ -1,9 +1,8 @@
 import { useState } from "react";
-import TextHighlight from "./elements/TextHighlight"
+import TextHighlight from "./elements/TextHighlight";
 import Modal from "./modal";
 
 export default function About() {
-
   const [modal, setModal] = useState(false);
   return (
     <>
@@ -11,14 +10,10 @@ export default function About() {
         id="about"
         className="grid grid-cols-1 pt-12 pb-20 md:pt-24 lg:grid-cols-12 xl:py-20"
       >
-        <h1
-          className="col-span-3 text-accent uppercase font-semibold text-xl mb-4 lg:text-right lg:mr-24 lg:w-52"
-        >
+        <h1 className="col-span-3 text-accent uppercase font-semibold text-xl mb-4 lg:text-right lg:mr-24 lg:w-52">
           Sobre mí
         </h1>
-        <article
-          className="font-light flex flex-col gap-5 md:max-w-2xl lg:col-span-9 lg:max-w-2xl lg:text-pretty"
-        >
+        <article className="font-light flex flex-col gap-5 md:max-w-2xl lg:col-span-9 lg:max-w-2xl lg:text-pretty">
           <p>
             Actualmente soy Ingeniero en{" "}
             <TextHighlight
@@ -65,9 +60,11 @@ export default function About() {
             </span>
             , seguramente esté disfrutando de una sesión de gimnasio, leyendo
             todo tipo de fantasía o aprendiendo a ser mejor{" "}
-            <TextHighlight url="/photography" setModal={setModal}>fotógrafo.</TextHighlight>
+            <TextHighlight url="/photography">
+              fotógrafo.
+            </TextHighlight>
           </p>
-          <Modal modal={modal} />
+       
         </article>
       </section>
     </>
