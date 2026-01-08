@@ -74,7 +74,7 @@ export default function GalleryBase({ images }: GalleryBaseProps) {
     <div>
       <header className="flex flex-col gap-4 justify-start items-start mb-4 sm:mb-8 lg:mb-12 w-full md:flex-row md:items-end md:justify-between">
         <div className="flex flex-col gap-2 font-light text-3xl uppercase">
-          <a href="/#experiencia" className="font-bold text-accent">
+          <a href="/" className="font-bold text-accent">
             Aitor Blesa
           </a>
           <span className="text-xl sm:text-2xl">Photography</span>
