@@ -60,11 +60,11 @@ export default function About() {
             </span>
             , seguramente esté disfrutando de una sesión de gimnasio, leyendo
             todo tipo de fantasía o aprendiendo a ser mejor{" "}
-            <TextHighlight url="/photography">
+            <TextHighlight url="/photography" setModal={setModal}>
               fotógrafo.
             </TextHighlight>
           </p>
-       
+          {modal && <Modal modal={modal} />}
         </article>
       </section>
     </>

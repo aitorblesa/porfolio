@@ -18,7 +18,7 @@
       "tags": ["Next.js", "Tailwind CSS", "Strapi"]
     },
     "enlaces": {
-      "Visitar": "https://anna-julia-ugc-frontend.vercel.app/"
+      "visitar": "https://anna-julia-ugc-frontend.vercel.app/"
     },
     "image": "/annaugc.png"
   }

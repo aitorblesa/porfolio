@@ -61,17 +61,17 @@ const getTagMeta = (tag: string): TagMeta => {
   <article class="flex flex-col  col-span-9 gap-y-16">
   {
     PROJECTS.map(({ title, description, etiquetas, enlaces, image }) => (
-      <article class="flex space-x-8 w-full ">
-        <div class="w-full md:w-1/2 rounded-xl border shadow-xl relative">
-            <img src={image} alt={title} loading="lazy" class="col-span-4 rounded-lg object-cover object-top w-full h-64" />
+      <article class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full group">
+        <div class="w-full md:w-1/2 rounded-xl border shadow-xl transition duration-500 ease-in-out transform relative overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img src={image} alt={title} loading="lazy" class="col-span-4 rounded-lg object-cover object-top w-full h-64 transition duration-500 md:group-hover:scale-105" />
         </div>
-        <div class="w-full md:w-1/2 md:max-w-lg flex flex-col gap-3">
+        <div class="w-full md:w-1/2 flex flex-col gap-3">
             <h3 class="text-2xl font-bold">{title}</h3>
             <ul class="flex mb-2 gap-x-2">
               {etiquetas.tags.map((tag) => {
                 const meta = getTagMeta(tag);
                 const Icon = meta.Icon;
-                console.log(meta);
+               
                 return (
                   <li>
                     <span
